@@ -18,7 +18,7 @@ from django.conf.urls import url
 from api import views
 
 urlpatterns = [
-    url(r'^(?P<number>[0-9]+)/?$', views.index, name='index'),
+    url(r'^(?P<numero>[^/]+)/?$', views.index, name='index'),
 ]
 
 
