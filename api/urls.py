@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 
-from api import views
+from api.views import NumeroView
 
 urlpatterns = [
-    url(r'^(?P<numero>[^/]+)/?$', views.index, name='index'),
+    url(r'^(?P<numero>[^/]+)/?$', NumeroView.as_view(), name='numero_view'),
 ]
 
 
