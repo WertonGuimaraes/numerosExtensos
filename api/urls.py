@@ -20,7 +20,3 @@ from api.views import NumeroView
 urlpatterns = [
     url(r'^(?P<numero>[^/]+)/?$', NumeroView.as_view(), name='numero_view'),
 ]
-
-
-
-

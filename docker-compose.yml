@@ -12,13 +12,13 @@ services:
       - esdata1:/usr/share/elasticsearch/data
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:3000
     volumes:
       - .:/code
     depends_on:
       - es
     ports:
-      - 8000:8000
+      - 3000:3000
 volumes:
     esdata1:
       driver: local

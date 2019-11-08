@@ -16,6 +16,7 @@ class NumeroPadronizadoTestCase(TestCase):
         digitos_padronizados = digitos_multiplo_de_3(digitos)
         self.assertEqual("00" + digitos, digitos_padronizados)
 
+
 class IntervaloCheckTestCase(TestCase):
     def test_dezena_especial__numero_inferior_ao_intervalo(self):
         numero = 10
@@ -36,6 +37,7 @@ class IntervaloCheckTestCase(TestCase):
     def test_dezena_especial__numero_superior_ao_intervalo(self):
         numero = 20
         self.assertFalse(eh_dezena_especial(numero))
+
 
 class NumerosNulosCheckTestCase(TestCase):
     def test_numero_diferente_de_zero__numero_zero(self):

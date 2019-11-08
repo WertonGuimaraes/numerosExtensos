@@ -1,8 +1,9 @@
 # coding=utf-8
-unidades = ("", "um", "dois","tres", "quatro","cinco", "seis", "sete", "oito", "nove")
+unidades = ("", "um", "dois", "tres", "quatro", "cinco", "seis", "sete", "oito", "nove")
 dezenas = ("", "dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa")
 dezenas_especiais = ("", "onze", "doze", "treze", "cartoze", "quinze", "dezeseis", "dezesete", "dezoito", "dezenove")
-centenas = ("", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seicentos", "setecentos", "oitocentos", "novecentos")
+centenas = ("", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seicentos", "setecentos", "oitocentos",
+            "novecentos")
 extensoes_singular = ("", "mil", "milhao")
 extensoes_plural = ("", "mil", "milhoes")
 
