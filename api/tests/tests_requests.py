@@ -6,6 +6,8 @@ from django.test import TestCase
 from httpstatus import OK, BAD_REQUEST
 from django.test import Client
 
+from util.constants import LIMITE_MAXIMO, LIMITE_MINIMO
+
 
 class NumeroParaExtensoRequestTestCase(TestCase):
 
@@ -19,50 +21,48 @@ class NumeroParaExtensoRequestTestCase(TestCase):
     def test_decorator_valida_numero_inteiro_com_uma_letra(self):
         numero = "1a"
         mensagem_esperada = {"erro": "O valor recebido não é um inteiro."}
-        response = Client().get("/" + numero)
+        response = Client().get("/" + str(numero))
         self.assertEqual(mensagem_esperada, json.loads(response.content))
         self.assertEqual(BAD_REQUEST, response.status_code)
 
     def test_decorator_valida_limite_numero_menor_que_o_minimo(self):
-        numero = "-1000000000"
-        mensagem_esperada = {"erro": "Só é aceitado números inteiros entre -999999999 e 999999999."}
-        response = Client().get("/" + numero)
+        numero = LIMITE_MINIMO - 1
+        mensagem_esperada = {"erro": "Só é aceitado números inteiros entre %s e %s." % (LIMITE_MINIMO, LIMITE_MAXIMO)}
+        response = Client().get("/" + str(numero))
         self.assertEqual(mensagem_esperada, json.loads(response.content))
         self.assertEqual(BAD_REQUEST, response.status_code)
 
     def test_decorator_valida_limite_numero_igual_ao_minimo(self):
-        numero = "-999999999"
-        mensagem_esperada = {"extenso": "menos novecentos e noventa e nove milhoes e novecentos e noventa "
-                                        "e nove mil e novecentos e noventa e nove"}
-        response = Client().get("/" + numero)
+        numero = LIMITE_MINIMO
+        mensagem_esperada = {"extenso": "menos noventa e nove mil e novecentos e noventa e nove"}
+        response = Client().get("/" + str(numero))
         self.assertEqual(mensagem_esperada, json.loads(response.content))
         self.assertEqual(OK, response.status_code)
 
     def test_decorator_valida_limite_numero_positivo_dentro_do_limite(self):
         numero = "92700"
         mensagem_esperada = {"extenso": "noventa e dois mil e setecentos"}
-        response = Client().get("/" + numero)
+        response = Client().get("/" + str(numero))
         self.assertEqual(mensagem_esperada, json.loads(response.content))
         self.assertEqual(OK, response.status_code)
 
     def test_decorator_valida_limite_numero_negativo_dentro_do_limite(self):
         numero = "-92700"
         mensagem_esperada = {"extenso": "menos noventa e dois mil e setecentos"}
-        response = Client().get("/" + numero)
+        response = Client().get("/" + str(numero))
         self.assertEqual(mensagem_esperada, json.loads(response.content))
         self.assertEqual(OK, response.status_code)
 
     def test_decorator_valida_limite_numero_igual_ao_maximo(self):
-        numero = "999999999"
-        mensagem_esperada = {"extenso": "novecentos e noventa e nove milhoes e novecentos e noventa"
-                                        " e nove mil e novecentos e noventa e nove"}
-        response = Client().get("/" + numero)
+        numero = LIMITE_MAXIMO
+        mensagem_esperada = {"extenso": "noventa e nove mil e novecentos e noventa e nove"}
+        response = Client().get("/" + str(numero))
         self.assertEqual(mensagem_esperada, json.loads(response.content))
         self.assertEqual(OK, response.status_code)
 
     def test_decorator_valida_limite_numero_maior_que_o_maximo(self):
-        numero = "1000000000"
-        mensagem_esperada = {"erro": "Só é aceitado números inteiros entre -999999999 e 999999999."}
-        response = Client().get("/" + numero)
+        numero = LIMITE_MAXIMO + 1
+        mensagem_esperada = {"erro": "Só é aceitado números inteiros entre %s e %s." % (LIMITE_MINIMO, LIMITE_MAXIMO)}
+        response = Client().get("/" + str(numero))
         self.assertEqual(mensagem_esperada, json.loads(response.content))
         self.assertEqual(BAD_REQUEST, response.status_code)
