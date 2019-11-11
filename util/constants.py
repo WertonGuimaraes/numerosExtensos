@@ -1,10 +1,10 @@
 # coding=utf-8
-unidades = ("", "um", "dois", "tres", "quatro", "cinco", "seis", "sete", "oito", "nove")
+unidades = ("", "um", "dois", u"três", "quatro", "cinco", "seis", "sete", "oito", "nove")
 dezenas = ("", "dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa")
-dezenas_especiais = ("", "onze", "doze", "treze", "cartoze", "quinze", "dezeseis", "dezesete", "dezoito", "dezenove")
-centenas = ("", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seicentos", "setecentos", "oitocentos",
+dezenas_especiais = ("", "onze", "doze", "treze", "catorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove")
+centenas = ("", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos",
             "novecentos")
-extensoes_singular = ("", "mil", "milhao")
+extensoes_singular = ("", "mil", u"milhão")
 extensoes_plural = ("", "mil", "milhoes")
 
 ZERO = "zero"
@@ -19,5 +19,5 @@ LIMITE_MINIMO = -99999
 
 ERRO = "erro"
 EXTENSO = "extenso"
-MESSAGEM_ERRO_FORA_DO_LIMITE = u"Só é aceitado números inteiros entre %d e %d." % (LIMITE_MINIMO, LIMITE_MAXIMO)
+MESSAGEM_ERRO_FORA_DO_LIMITE = u"Só são aceitos números inteiros entre %d e %d." % (LIMITE_MINIMO, LIMITE_MAXIMO)
 MESSAGEM_ERRO_NUMERO_NAO_INTEIRO = u"O valor recebido não é um inteiro."

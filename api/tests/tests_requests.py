@@ -27,7 +27,7 @@ class NumeroParaExtensoRequestTestCase(TestCase):
 
     def test_decorator_valida_limite_numero_menor_que_o_minimo(self):
         numero = LIMITE_MINIMO - 1
-        mensagem_esperada = {"erro": "Só é aceitado números inteiros entre %s e %s." % (LIMITE_MINIMO, LIMITE_MAXIMO)}
+        mensagem_esperada = {"erro": "Só são aceitos números inteiros entre %s e %s." % (LIMITE_MINIMO, LIMITE_MAXIMO)}
         response = Client().get("/" + str(numero))
         self.assertEqual(mensagem_esperada, json.loads(response.content))
         self.assertEqual(BAD_REQUEST, response.status_code)
@@ -62,7 +62,7 @@ class NumeroParaExtensoRequestTestCase(TestCase):
 
     def test_decorator_valida_limite_numero_maior_que_o_maximo(self):
         numero = LIMITE_MAXIMO + 1
-        mensagem_esperada = {"erro": "Só é aceitado números inteiros entre %s e %s." % (LIMITE_MINIMO, LIMITE_MAXIMO)}
+        mensagem_esperada = {"erro": "Só são aceitos números inteiros entre %s e %s." % (LIMITE_MINIMO, LIMITE_MAXIMO)}
         response = Client().get("/" + str(numero))
         self.assertEqual(mensagem_esperada, json.loads(response.content))
         self.assertEqual(BAD_REQUEST, response.status_code)

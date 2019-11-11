@@ -71,7 +71,7 @@ class NumeroBaseExtensoTestCase(TestCase):
 
     def test_numero_base_em_extenso__numero_316(self):
         numero = "316"
-        traducao = "trezentos e dezeseis"
+        traducao = "trezentos e dezesseis"
         self._assertEqualsNumeroETraducao(numero, traducao)
 
     def test_numero_base_em_extenso__numero_365(self):
@@ -140,7 +140,7 @@ class ConcatenacaoExtensoTestCase(TestCase):
         indice = 0
         self.numero_extenso_object.numero_extenso = "um"
         self.numero_extenso_object._add_extensao_milhar(centenas[indice], len(centenas), indice)
-        self.assertEqual("um milhao", self.numero_extenso_object.numero_extenso)
+        self.assertEqual("um milhão", self.numero_extenso_object.numero_extenso)
 
     def test_add_extensao_milhar__na_centena_de_milhoes_maior_que_um__002(self):
         centenas = ["002", "000", "000"]

@@ -25,7 +25,7 @@ class Numero(object):
             extensao = extensoes_plural[:total_de_centenas:][::-1][indice_da_centena]
 
         if extensao:
-            self.numero_extenso = ("%s %s" % (self.numero_extenso, extensao)).strip()
+            self.numero_extenso = (u"%s %s" % (self.numero_extenso, extensao)).strip()
 
     def _add_concatenador_e(self, numero_com_tres_casas_decimais, restante_do_numero):
         if int(numero_com_tres_casas_decimais) != 0 and restante_do_numero and int(restante_do_numero) != 0:
@@ -73,10 +73,3 @@ class Numero(object):
             self._add_extensao_milhar(numero_com_tres_casas_decimais, total_de_iteracao, i)
             self._add_concatenador_e(numero_com_tres_casas_decimais, restante_do_numero)
         return self.numero_extenso
-
-#
-# while True:
-#     numero = raw_input("Digite um numero: ")
-#     if "-5" in numero:
-#         break
-#     print converte_numero_inteiro_para_extenso(numero)

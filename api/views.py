@@ -32,9 +32,8 @@ def valida_limite(func):
 
 
 class NumeroView(View):
-
     @valida_numero
     @valida_limite
     def get(self, request, numero, *args, **kwargs):
         numero = Numero(numero)
-        return JsonResponse({EXTENSO: numero.numero_extenso}, status=OK)
+        return JsonResponse({EXTENSO: numero.numero_extenso}, status=OK, json_dumps_params={'ensure_ascii': False})
