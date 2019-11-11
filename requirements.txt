@@ -1,0 +1,8 @@
+coverage==4.5.4
+Django==1.11.26
+freeze==1.0.10
+httpstatus==1.0.4
+pep8==1.7.1
+psycopg2==2.8.4
+pytz==2019.3
+six==1.13.0

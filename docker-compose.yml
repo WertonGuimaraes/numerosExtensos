@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:3000
+    volumes:
+      - .:/code
+    ports:
+      - 3000:3000
+volumes:
+    esdata1:
+      driver: local
